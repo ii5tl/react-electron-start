@@ -22,7 +22,7 @@ function createWindow() {
             slashes: true
         });
     // mainWindow.loadURL(startUrl);
-    mainWindow.loadURL('http://localhost:8080/#/settings');
+    mainWindow.loadURL('http://localhost:3000');
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();

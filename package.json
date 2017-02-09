@@ -41,6 +41,7 @@
     "promise": "7.1.1",
     "react-dev-utils": "^0.4.2",
     "react-scripts": "^0.8.5",
+    "react-toolbox-themr": "^1.0.2",
     "recursive-readdir": "2.1.0",
     "remote-redux-devtools": "^0.5.7",
     "sass-loader": "^4.1.1",
@@ -55,7 +56,9 @@
   "dependencies": {
     "electron": "^1.4.15",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-inline-grid": "^0.5.3",
+    "react-toolbox": "^2.0.0-beta.6"
   },
   "main": "src/electron-starter.js",
   "scripts": {
@@ -66,7 +69,22 @@
     "electron": "electron .",
     "dev": "nf start -p 3000",
     "electron-dev": "ELECTRON_START_URL=http://localhost:3000 electron .",
-    "electron-build": "electron-packager . Myapp"
+    "electron-build": "electron-packager . Myapp",
+    "toolbox": "react-toolbox-themr"
+  },
+  "reactToolbox": {
+    "include": [
+      "BUTTON",
+      "DATE_PICKER"
+    ],
+    "customProperties": {
+      "animation-duration": "0.3s",
+      "color-accent": "var(--palette-pink-a200)",
+      "color-accent-dark": "var(--palette-pink-700)",
+      "color-primary-contrast": "var(--color-dark-contrast)",
+      "color-accent-contrast": "var(--color-dark-contrast)"
+    },
+    "output": "assets/react-toolbox"
   },
   "jest": {
     "collectCoverageFrom": [
