@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+
+import AppBar from 'material-ui/AppBar';
+
 import Button from 'react-toolbox/lib/button/Button';
 import { Grid, Row, Cell } from 'react-inline-grid';
-import FontIcon from 'react-toolbox/lib/font_icon/FontIcon';
+import FontIcon from 'material-ui/FontIcon';
+import {blue500, red500, greenA200} from 'material-ui/styles/colors';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import {Card, CardActions, CardHeader, CardText} from 'material-ui/Card';
+import {Card, CardActions, CardHeader, CardText, CardMedia} from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 import {Tabs, Tab} from 'material-ui/Tabs';
 import Slider from 'material-ui/Slider';
+import NavigationClose from 'material-ui/svg-icons/navigation/close';
+import ArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down-circle';
+
+
+
+import IconButton from 'material-ui/IconButton';
+
+
+import TextField from 'material-ui/TextField';
+
+import TopNavBar from './components/TopNavBar';
+import BetSlip from './components/BetSlip';
+
 const styles = {
   headline: {
     fontSize: 24,
@@ -19,7 +36,9 @@ const styles = {
     fontWeight: 400,
   },
 };
-
+const iconStyles = {
+  marginRight: 24,
+}
 function handleActive(tab) {
   // alert(`A tab with this route property ${tab.props['data-route']} was activated.`);
 }
@@ -28,6 +47,46 @@ function handleActive(tab) {
 
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
+
+const appBarStyle= {
+  backgroundColor: '#0F4D91',
+}
+
+class Login extends Component {
+  static muiName = 'FlatButton';
+
+  render() {
+    return (
+      <FlatButton {...this.props} label="Login" />
+    );
+  }
+}
+
+
+
+
+
+import IconMenu from 'material-ui/IconMenu';
+import MenuItem from 'material-ui/MenuItem';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
+
+const Logged = (props) => (
+  <div>
+
+     <FlatButton label="About"  />
+  <IconMenu
+    {...props}
+    iconButtonElement={
+      <IconButton><MoreVertIcon /></IconButton>
+    }
+    targetOrigin={{horizontal: 'right', vertical: 'top'}}
+    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+  >
+    <MenuItem primaryText="Refresh" />
+    <MenuItem primaryText="Help" />
+    <MenuItem primaryText="Sign out" />
+  </IconMenu></div>
+);
 
 class App extends Component {
 
@@ -55,114 +114,53 @@ class App extends Component {
   };
 
   render() {
+
+
+const divStyle= {
+  'height': '100%'
+}
+
+const appBarStyle= {
+  backgroundColor: '#053166',
+  'padding-right': '0px',
+
+}
+const buttonStyle = {
+      backgroundColor: '#053166',
+      color: 'white',
+       'border-left': '2px solid #0E2A4A',
+       'height' : '100%'
+
+};
+
+    const rightButtons = (
+        <div style={divStyle}>
+          <FlatButton label="About" style={buttonStyle} />
+          <FlatButton label="Home" style={buttonStyle} />
+        </div>
+      );
+
+
+
     return (
 
 <div>
-
+    <div className="header">
+  <AppBar title=""
+  iconElementLeft={<div><IconButton><ArrowDropDown /></IconButton> <TextField/></div>}
+  iconElementRight={rightButtons}
+  iconStyleRight={{'margin-top':'0px'}}
+  style={appBarStyle}
+/>
+   </div>
   <div className="container">
   <div className="left">
-    <div className="area">
-                 <nav className="main-menu">
-                             <ul>
-                                 <li>
-                                     <a href="#">
-                                       <i className="fa fa-list fa-2x"><FontIcon value='favorite' /></i>
-
-                                         <span className="nav-text">
-                                             Dashboard
-                                         </span>
-                                     </a>
-
-                                 </li>
-                                 <li className="has-subnav">
-                                     <a href="#">
-                                       <i className="fa fa-laptop fa-2x"><FontIcon value='add' /></i>
-                                         <span className="nav-text">
-                                             UI Components
-                                         </span>
-                                     </a>
-
-                                 </li>
-                                 <li className="has-subnav">
-                                     <a href="#">
-                                        <i className="fa fa-list fa-2x"></i>
-                                         <span className="nav-text">
-                                             Forms
-                                         </span>
-                                     </a>
-
-                                 </li>
-                                 <li className="has-subnav">
-                                     <a href="#">
-                                        <i className="fa fa-folder-open fa-2x"></i>
-                                         <span className="nav-text">
-                                             Pages
-                                         </span>
-                                     </a>
-
-                                 </li>
-                                 <li>
-                                     <a href="#">
-                                         <i className="fa fa-bar-chart-o fa-2x"></i>
-                                         <span className="nav-text">
-                                             Graphs and Statistics
-                                         </span>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="#">
-                                         <i className="fa fa-font fa-2x"></i>
-                                         <span className="nav-text">
-                                             Typography and Icons
-                                         </span>
-                                     </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                      <i className="fa fa-table fa-2x"></i>
-
-                                         <span className="nav-text">
-                                             Tables
-                                         </span>
-                                     </a>
-                                 </li>
-                                 <li>
-                                    <a href="#">
-                                         <i className="fa fa-map-marker fa-2x"></i>
-                                         <span className="nav-text">
-                                             Maps
-                                         </span>
-                                     </a>
-                                 </li>
-                                 <li>
-                                     <a href="#">
-                                        <i className="fa fa-info fa-2x"></i>
-                                         <span className="nav-text">
-                                             Documentation
-                                         </span>
-                                     </a>
-                                 </li>
-                             </ul>
-
-                             <ul className="logout">
-                                 <li>
-                                    <a href="#">
-                                          <i className="fa fa-power-off fa-2x"></i>
-                                         <span className="nav-text">
-                                             Logout
-                                         </span>
-                                     </a>
-                                 </li>
-                             </ul>
-                         </nav>
-
-
-               </div>
-</div>
+   <TopNavBar/>
+ </div>
 
 <div className="middle">
-  <Tabs>
-   <Tab label="Item One" >
+  <Tabs >
+   <Tab label="Item Onffe" >
      <div>
        <h2 style={styles.headline}>Tab One</h2>
        <p>
@@ -199,60 +197,9 @@ class App extends Component {
 
 
   <div className="right">
-    <Card>
-   <CardHeader
-     title="Without Avatar"
-     subtitle="Subtitle"
-     actAsExpander={true}
-     showExpandableButton={true}
-   />
-   <CardActions>
-     <FlatButton label="Action1" />
-     <FlatButton label="Action2" />
-   </CardActions>
-   <CardText expandable={true}>
-     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-     Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-     Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-     Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-   </CardText>
- </Card>
- <Card>
-<CardHeader
-  title="Without Avatar"
-  subtitle="Subtitle"
-  actAsExpander={true}
-  showExpandableButton={true}
-/>
-<CardActions>
-  <FlatButton label="Action1" />
-  <FlatButton label="Action2" />
-</CardActions>
-<CardText expandable={true}>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
-  Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
-  Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-</CardText>
-</Card>
-<Card>
-<CardHeader
- title="Without Avatar"
- subtitle="Subtitle"
- actAsExpander={true}
- showExpandableButton={true}
-/>
-<CardActions>
- <FlatButton label="Action1" />
- <FlatButton label="Action2" />
-</CardActions>
-<CardText expandable={true}>
- Lorem ipsum dolor sit amet, consectetur adipiscing elit.
- Donec mattis pretium massa. Aliquam erat volutpat. Nulla facilisi.
- Donec vulputate interdum sollicitudin. Nunc lacinia auctor quam sed pellentesque.
- Aliquam dui mauris, mattis quis lacus id, pellentesque lobortis odio.
-</CardText>
-</Card>
+    <BetSlip/>
+      <BetSlip/>
+      <BetSlip/>
   </div>
 
 
