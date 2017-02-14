@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from '../logo.svg';
+import '../App.css';
 
 import AppBar from 'material-ui/AppBar';
 
@@ -25,8 +25,8 @@ import IconButton from 'material-ui/IconButton';
 
 import TextField from 'material-ui/TextField';
 
-import TopNavBar from './components/TopNavBar';
-import BetSlip from './components/BetSlip';
+import TopNavBar from './TopNavBar';
+import BetSlip from './BetSlip';
 
 const styles = {
   headline: {

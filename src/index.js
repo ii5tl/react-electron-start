@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import ThemeProvider from 'react-toolbox/lib/ThemeProvider';
 import theme from '../assets/react-toolbox/theme.js'
 
-import App from './App';
+import App from './components/App';
 import '../public/react-toolbox/theme.css';
 import './index.css';
 import {indigo500, indigo700, redA200} from 'material-ui/styles/colors';
