@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 
-import AppBar from 'material-ui/AppBar';
 
 import Button from 'react-toolbox/lib/button/Button';
 import { Grid, Row, Cell } from 'react-inline-grid';
@@ -23,8 +22,7 @@ import ArrowDropDown from 'material-ui/svg-icons/navigation/arrow-drop-down-circ
 import IconButton from 'material-ui/IconButton';
 
 
-import TextField from 'material-ui/TextField';
-
+import TopAppBar from './TopAppBar';
 import TopNavBar from './TopNavBar';
 import BetSlip from './BetSlip';
 
@@ -48,47 +46,48 @@ function handleActive(tab) {
 import injectTapEventPlugin from 'react-tap-event-plugin';
 injectTapEventPlugin();
 
-const appBarStyle= {
-  backgroundColor: '#0F4D91',
-}
-
-class Login extends Component {
-  static muiName = 'FlatButton';
-
-  render() {
-    return (
-      <FlatButton {...this.props} label="Login" />
-    );
-  }
-}
-
-
+// const appBarStyle= {
+//   backgroundColor: '#0F4D91',
+// }
+//
+// class Login extends Component {
+//   static muiName = 'FlatButton';
+//
+//   render() {
+//     return (
+//       <FlatButton {...this.props} label="Login" />
+//     );
+//   }
+// }
 
 
+// const Logged = (props) => (
+//   <div>
+//
+//      <FlatButton label="About"  />
+//   <IconMenu
+//     {...props}
+//     iconButtonElement={
+//       <IconButton><MoreVertIcon /></IconButton>
+//     }
+//     targetOrigin={{horizontal: 'right', vertical: 'top'}}
+//     anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+//   >
+//     <MenuItem primaryText="Refresh" />
+//     <MenuItem primaryText="Help" />
+//     <MenuItem primaryText="Sign out" />
+//   </IconMenu></div>
+// );
 
-import IconMenu from 'material-ui/IconMenu';
-import MenuItem from 'material-ui/MenuItem';
-import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
-
-const Logged = (props) => (
-  <div>
-
-     <FlatButton label="About"  />
-  <IconMenu
-    {...props}
-    iconButtonElement={
-      <IconButton><MoreVertIcon /></IconButton>
-    }
-    targetOrigin={{horizontal: 'right', vertical: 'top'}}
-    anchorOrigin={{horizontal: 'right', vertical: 'top'}}
-  >
-    <MenuItem primaryText="Refresh" />
-    <MenuItem primaryText="Help" />
-    <MenuItem primaryText="Sign out" />
-  </IconMenu></div>
-);
+// const propTypes = {
+//   changeMenu: PropTypes.func,
+//
+// };
 
 class App extends Component {
+
+
+
 
   constructor(props) {
     super(props);
@@ -96,6 +95,14 @@ class App extends Component {
       expanded: false,
     };
   }
+
+  changeMenu(entryName) {
+      // let index = this.state.menuEntries.indexOf(entry);
+      // this.setState({
+      //     activeSetting: index
+      // });
+      // changeViewSetting({activeItemName: entryName});
+}
 
   handleExpandChange = (expanded) => {
     this.setState({expanded: expanded});
@@ -116,29 +123,7 @@ class App extends Component {
   render() {
 
 
-const divStyle= {
-  'height': '100%'
-}
 
-const appBarStyle= {
-  backgroundColor: '#053166',
-  'padding-right': '0px',
-
-}
-const buttonStyle = {
-      backgroundColor: '#053166',
-      color: 'white',
-       'border-left': '2px solid #0E2A4A',
-       'height' : '100%'
-
-};
-
-    const rightButtons = (
-        <div style={divStyle}>
-          <FlatButton label="About" style={buttonStyle} />
-          <FlatButton label="Home" style={buttonStyle} />
-        </div>
-      );
 
 
 
@@ -146,12 +131,7 @@ const buttonStyle = {
 
 <div>
     <div className="header">
-  <AppBar title=""
-  iconElementLeft={<div><IconButton><ArrowDropDown /></IconButton> <TextField/></div>}
-  iconElementRight={rightButtons}
-  iconStyleRight={{'margin-top':'0px'}}
-  style={appBarStyle}
-/>
+        <TopAppBar/>
    </div>
   <div className="container">
   <div className="left">
